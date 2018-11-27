@@ -12,10 +12,7 @@
     <!-- USERS LIST -->
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Listado de Casos</h3>
-            <div class="box-tools pull-right">
-                <a href="{{URL::to('casos/recibir_nuevo')}}" class="btn btn-box-tool"><i class="fa  fa-file-text-o"></i> Recibir Caso</a>
-            </div>
+            <h3 class="box-title">Listado de casos</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body no-padding">

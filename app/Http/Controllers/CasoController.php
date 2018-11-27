@@ -89,7 +89,7 @@ class CasoController extends Controller {
                 $recomendaciones = Input::get('recomendaciones');
                 //if(valido todos los campos){
                 //Busco el estudiante
-                $estudiante = Estudiante::where('user_id', '=', $user->id)->first();
+                $estudiante = Estudiante::where('id', '=', $user->id)->first();
                 //Creo el usuario
                 $usuario = new Usuario();
                 $usuario->nombre = $nombre;
