@@ -61,6 +61,12 @@
                             @if($j->estado == 'pendiente')
                             <td><a href="{{URL::to('jefes_area/estado/'.$j->id.'/aceptado')}}" title="Aceptar" class="btn btn-info"><i class="fa fa-check"></i></a> <a href="{{URL::to('jefes_area/estado/'.$j->id.'/rechazado')}}" title="Rechazar" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
                             @endif
+                            @if($j->estado == 'aceptado')
+                            <td><a href="{{URL::to('jefes_area/estado/'.$j->id.'/rechazado')}}" title="Borrar" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                            @endif
+                            @if($j->estado == 'rechazado')
+                            <td><a href="{{URL::to('jefes_area/estado/'.$j->id.'/aceptado')}}" title="Activar" class="btn btn-info"><i class="fa fa-check"></i></a></td>
+                            @endif
                             @endif
                         </tr>
                         @endforeach

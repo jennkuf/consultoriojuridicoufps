@@ -147,6 +147,7 @@
                         <li><a href="{!! URL::to('estudinate/casos/asignados') !!}"><i class="fa  fa-hourglass-3"></i><span>Casos</span></a></li>
                     </ul>
                 </li>
+                 <li><a href="{!! URL::to('miHorario') !!}"><i class="fa fa-user-secret"></i><span>Mi horario</span></a></li>
                 <li><a href="{!! URL::to('logout') !!}"><i class="fa fa-user-secret"></i><span>Cerrar Sesión</span></a></li>
             </ul>
         </section>

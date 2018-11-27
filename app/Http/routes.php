@@ -227,3 +227,7 @@ Route::get('casos/ver_seguimiento/{id}', array(
 Route::get('mis_casos', array(
     'uses' => 'CasoController@miscasos'
 )); 
+
+Route::get('miHorario', array(
+    'uses' => 'EstudianteController@verMiHorario'
+));

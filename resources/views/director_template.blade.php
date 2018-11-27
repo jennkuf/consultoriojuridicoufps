@@ -144,9 +144,13 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{!! URL::to('jefes_area/aceptados') !!}"><i class="fa fa-user-secret"></i><span>Jefes de Area Aceptados</span></a></li>
-                        <li><a href="{!! URL::to('jefes_area/pendientes') !!}"><i class="fa fa-user-secret"></i><span>Jefes de Area Pendientes</span></a></li>
-                        <li><a href="{!! URL::to('jefes_area/rechazados') !!}"><i class="fa fa-user-secret"></i><span>Jefes de Area Rechazados</span></a></li>
+                        <li><a href="{!! URL::to('jefes_area/aceptados') !!}"><i class="fa fa-user"></i><span>Jefes de Area Aceptados</span></a></li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li><a href="{!! URL::to('jefes_area/pendientes') !!}"><i class="fa fa-user"></i><span>Jefes de Area Pendientes</span></a></li>
+                    </ul>   
+                    <ul class="treeview-menu">
+                        <li><a href="{!! URL::to('jefes_area/rechazados') !!}"><i class="fa fa-user"></i><span>Jefes de Area Rechazados</span></a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -155,8 +159,12 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{!! URL::to('estudiantes/aspirantes') !!}"><i class="fa fa-user-secret"></i><span>Aspirantes</span></a></li>
+                        <li><a href="{!! URL::to('estudiantes/aspirantes') !!}"><i class="fa fa-user"></i><span>Aspirantes</span></a></li>
+                    </ul>
+                    <ul class="treeview-menu">    
                         <li><a href="{!! URL::to('estudiantes/aceptados') !!}"><i class="fa fa-user"></i><span>Aceptados</span></a></li>
+                    </ul>
+                    <ul class="treeview-menu">    
                         <li><a href="{!! URL::to('estudiantes/rechazados') !!}"><i class="fa fa-user"></i><span>Rechazados</span></a></li>
                     </ul>
                 </li>
@@ -169,7 +177,7 @@
                         <li><a href="{!! URL::to('reporte/casos') !!}"><i class="fa  fa-hourglass-3"></i><span>Reporte de Casos</span></a></li>
                     </ul>
                 </li>
-                <li><a href="{!! URL::to('logout') !!}"><i class="fa fa-user-secret"></i><span>Cerrar Sesión</span></a></li>
+                <li><a href="{!! URL::to('logout') !!}"><i class="fa fa-user"></i><span>Cerrar Sesión</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

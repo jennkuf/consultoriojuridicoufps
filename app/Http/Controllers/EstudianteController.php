@@ -100,7 +100,7 @@ class EstudianteController extends Controller {
                 !empty($codigo) && !empty($foto) && !empty($nombre) && !empty($apellidos) && !empty($tipo_despacho) &&
                 !empty($semestre) && !empty($jornada) && !empty($periodo_academico) && !empty($genero) && !empty($fecha_nacimiento) &&
                 !empty($lugar_nacimiento) && !empty($documento) && !empty($expedida_en) && !empty($direccion_actual) && !empty($estrato) && !empty($barrio) && !empty($telefono) && !empty($celular) && !empty($correo) && !empty($funcionario) &&
-                count($horario) > 0 && !empty($encuenta) && !empty($imagen_cedula) && !empty($imagen_carnet) && !empty($imagen_contraloria) &&
+                count($horario) > 0 && !empty($imagen_cedula) && !empty($imagen_carnet) && !empty($imagen_contraloria) &&
                 !empty($imagen_procuraduria) && !empty($imagen_ponal)
         ) {
             $estudiante = new Estudiante();
@@ -247,6 +247,26 @@ class EstudianteController extends Controller {
                     $observaciones = Observaciones::where('estudiante_id', '=', $estudiante->id)->get();
                     $casos = Caso::where('estudiante_id', '=', $id)->get();
                     return view('usuarios.estudiante.estudiante_informacion_aceptados', ['casos' => $casos, 'estudiante' => $estudiante, 'horario' => json_encode($horario), 'horario2' => json_encode($horario2), 'edad' => $edad, 'observaciones' => $observaciones]);
+                }
+                return redirect('/')->with('error', 'No se reconoce la información solicitada, verifique e intentelo de nuevo.');
+            }
+            return redirect('/')->with('error', 'No tiene permisos para acceder a esta función.');
+        }
+        return redirect('/')->with('error', 'Debe iniciar sesión.');
+    }
+
+    function verMiHorario() {
+        if (Auth::check()) {
+            if (session('rol') == 'estudiante') {
+                $user = Auth::user();
+                $estudiante = Estudiante::where('user_id', '=', $user->id)->first();
+                if (!empty($id)) {
+                    //error_log("ESTUDIANTE -< $estudiante->nombre _ ID -< $estudiante->id");
+                  return redirect('/')->with('error', 'Entra');
+                    $horario = HorarioClase::where('estudiante_id', '=', $estudiante->id)->get();
+                    $horario2 = HorarioConsultorio::where('estudiante_id', '=', $estudiante->id)->get();
+                    
+                    return view('usuarios.estudiante.estudiante_ver_horario',['horario' => json_encode($horario), 'horario2' => json_encode($horario2)]);
                 }
                 return redirect('/')->with('error', 'No se reconoce la información solicitada, verifique e intentelo de nuevo.');
             }
