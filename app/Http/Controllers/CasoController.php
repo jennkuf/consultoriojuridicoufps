@@ -90,8 +90,17 @@ class CasoController extends Controller {
                 //if(valido todos los campos){
                 //Busco el estudiante
                 $estudiante = Estudiante::where('id', '=', $user->id)->first();
-                //Creo el usuario
+                //Creo el ussers
+                   $us = new User();
+                $us->username = $documento;
+                $us->password = md5($documento);
+                $us->id_rol = 5;
+                $us->save();
+
+                 // Crea el usuario
+
                 $usuario = new Usuario();
+                $usuario->id = $us->id;
                 $usuario->nombre = $nombre;
                 $usuario->apellidos = $apellidos;
                 $usuario->documento = $documento;
@@ -109,13 +118,7 @@ class CasoController extends Controller {
                 $usuario->email = $email;
                 $usuario->save();
 
-                $us = new User();
-                $us->username = $documento;
-                $us->password = md5($documento);
-                $us->id_rol = 5;
-                $us->save();
-                $usuario->user_id = $us->id;
-                $usuario->save();
+             
 
                 //Creo el caso
                 $caso = new Caso();
@@ -467,6 +470,32 @@ class CasoController extends Controller {
                 )
                 ->get();
         return view('casos.miscasos', ['miscasos' => $casos]);
+    }
+
+function miscasos2() {
+                $user = Auth::user();
+        $usuario = Usuario::where('id', '=', $user->id)->first();
+        $casos = DB::table('caso')
+                ->join('estudiante', 'estudiante.id', '=', 'caso.estudiante_id')
+                ->join('usuario', 'usuario.id', '=', 'caso.usuario_id')
+                ->where('usuario.id', '=', $usuario->id)
+                ->select(
+                        "caso.id as id_caso", 
+                        "caso.area as area", 
+                        "caso.fecha as fecha_caso", 
+                        "caso.motivo_consulta as motivo", 
+                        "caso.recomendaciones as recomendaciones", 
+                        "caso.recomendaciones as estado", 
+                        "estudiante.nombre as nombre", 
+                        "estudiante.apellidos as apellidos", 
+                        "estudiante.foto as foto", 
+                        "usuario.documento as documentousuario", 
+                        "usuario.nombre as nombreusaurio", 
+                        "usuario.apellidos as apellidosusuario",
+                        "usuario.genero as genero"
+                )
+                ->get();
+        return view('casos.miscasos2', ['miscasos' => $casos]);
     }
 
 }

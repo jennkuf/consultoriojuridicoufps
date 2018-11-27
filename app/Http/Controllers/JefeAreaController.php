@@ -140,6 +140,7 @@ class JefeAreaController extends Controller {
                     $jefe->genero = $genero;
                     $jefe->codigo = $codigo;
                     $jefe->area = $area;
+                    $jefe->estado='pendiente';
                     $jefe->user_id = $user->id;
                     $jefe->save();
                     return redirect()->back()->with('mensaje', 'Se ha registrado un nuevo jefe exitosamente');

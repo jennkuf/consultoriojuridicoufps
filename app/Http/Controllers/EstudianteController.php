@@ -257,21 +257,15 @@ class EstudianteController extends Controller {
 
     function verMiHorario() {
         if (Auth::check()) {
-            if (session('rol') == 'estudiante') {
-                $user = Auth::user();
-                $estudiante = Estudiante::where('user_id', '=', $user->id)->first();
-                if (!empty($id)) {
-                    //error_log("ESTUDIANTE -< $estudiante->nombre _ ID -< $estudiante->id");
-                  return redirect('/')->with('error', 'Entra');
-                    $horario = HorarioClase::where('estudiante_id', '=', $estudiante->id)->get();
-                    $horario2 = HorarioConsultorio::where('estudiante_id', '=', $estudiante->id)->get();
+            $user = Auth::user();
+            $estudiante = Estudiante::where('user_id', '=', $user->id)->first();
+            
+            $horario = HorarioClase::where('estudiante_id', '=', $estudiante->id)->get();
+            $horario2 = HorarioConsultorio::where('estudiante_id', '=', $estudiante->id)->get();
                     
-                    return view('usuarios.estudiante.estudiante_ver_horario',['horario' => json_encode($horario), 'horario2' => json_encode($horario2)]);
-                }
-                return redirect('/')->with('error', 'No se reconoce la información solicitada, verifique e intentelo de nuevo.');
+             return view('usuarios.estudiante.estudiante_ver_horario', ['estudiante' => $estudiante, 'horario' => json_encode($horario), 'horario2' => json_encode($horario2)]);
+
             }
-            return redirect('/')->with('error', 'No tiene permisos para acceder a esta función.');
-        }
         return redirect('/')->with('error', 'Debe iniciar sesión.');
     }
 

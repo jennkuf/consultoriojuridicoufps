@@ -228,6 +228,11 @@ Route::get('mis_casos', array(
     'uses' => 'CasoController@miscasos'
 )); 
 
+Route::get('mis_casos2', array(
+    'uses' => 'CasoController@miscasos2'
+)); 
+
+
 Route::get('miHorario', array(
     'uses' => 'EstudianteController@verMiHorario'
 ));

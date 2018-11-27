@@ -164,29 +164,7 @@
                     </div>
                     <div class="box-body no-padding">
                         <div class="box box-danger">
-                            <!--<div class="box-header">
-                                <i class="fa fa-mortar-board"></i>
 
-                                <h3 class="box-title"> Alumno que Recepciona</h3>
-                            </div>
-                            <div class="box-body" id="cargar">
-                                <label for="email" class="col-sm-2 control-label">Codigo Estudiante:</label>
-
-                                <div class="input-group input-group-sm">
-
-                                    <input type="number" class="form-control" name="codigo" id="codigo" required
-                                           placeholder="Digite el codigo del estudiante para buscarlo..." min="1000">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-info btn-flat"
-                                                onclick="buscar('{{URL::to('/')}}')"><i
-                                                    class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                                <br/>
-                                <center><label style="color: red;">No se ha seleccionado el estudiante que recepciona el
-                                        caso.</label></center>
-                                <br/>
-                            </div>-->
                             <div class="box-body">
                                 <div class="col-md-12">
                                     <label for="motivo">Motivo de la Consulta:</label>

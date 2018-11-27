@@ -138,7 +138,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">MENÚ PRINCIPAL</li>
-                <li><a href="{{URL::to('mis_casos')}}">Mis casos</a></li>
+                <li><a href="{{URL::to('mis_casos2')}}">Mis casos</a></li>
                 
                 <li><a href="{!! URL::to('logout') !!}"><i class="fa fa-user-secret"></i><span>Cerrar Sesión</span></a></li>
             </ul>
