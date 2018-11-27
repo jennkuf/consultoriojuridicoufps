@@ -144,7 +144,10 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{!! URL::to('estudinate/casos/asignados') !!}"><i class="fa  fa-hourglass-3"></i><span>Casos</span></a></li>
+                        <li><a href="{{URL::to('casos/recibir_nuevo')}}"><i class="fa  fa-hourglass-3"></i><span>Recibir caso</span></a></li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li><a href="{!! URL::to('estudinate/casos/asignados') !!}"><i class="fa  fa-hourglass-3"></i><span>Listado de casos</span></a></li>
                     </ul>
                 </li>
                  <li><a href="{!! URL::to('miHorario') !!}"><i class="fa fa-user-secret"></i><span>Mi horario</span></a></li>
